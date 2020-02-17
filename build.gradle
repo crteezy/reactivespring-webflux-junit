@@ -6,7 +6,7 @@ plugins {
 
 group = 'com.github.crteezy'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '13'
 
 configurations {
 	compileOnly {
@@ -28,6 +28,7 @@ dependencies {
 	}
 	testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
 	testImplementation 'io.projectreactor:reactor-test'
+	testImplementation('junit:junit:4.13')
 }
 
 test {
