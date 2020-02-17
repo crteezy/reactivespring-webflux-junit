@@ -1,3 +1,4 @@
+
 package com.github.crteezy.reactivespring.controller;
 
 import org.springframework.http.MediaType;
@@ -14,7 +15,6 @@ public class FluxAndMonoController {
     @GetMapping("/flux")
     public Flux<Integer> returnFlux(){
         return Flux.just(1,2,3,4)
-                .delaySequence(Duration.ofSeconds(1))
                 .log();
     }
 
@@ -25,4 +25,9 @@ public class FluxAndMonoController {
                 .log();
     }
 
+    @GetMapping(value = "/fluxStreamInfinite", produces = MediaType.APPLICATION_STREAM_JSON_VALUE)
+    public Flux<Long> returnFluxStreamInfinite(){
+        return Flux.interval(Duration.ofSeconds(1))
+                .log();
+    }
 }
